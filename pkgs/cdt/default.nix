@@ -3,6 +3,7 @@
 , fetchgit
 , pkgs
 , lib
+, llvmPackages
 ,
 }:
 clangStdenv.mkDerivation rec {
@@ -26,7 +27,10 @@ clangStdenv.mkDerivation rec {
       })
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake clang git python3 ];
-  cmakeFlags = [ "-DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8" ];
+  cmakeFlags = [
+    "-DCMAKE_CXX_COMPILER=${llvmPackages.clang}/bin/clang++"
+    "-DCMAKE_C_COMPILER=${llvmPackages.clang}/bin/clang"
+  ];
 
   src = fetchgit {
     url = "https://github.com/AntelopeIO/cdt";
