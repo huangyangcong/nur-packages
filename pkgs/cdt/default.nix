@@ -10,7 +10,6 @@ clangStdenv.mkDerivation rec {
   name = "cdt";
   version = "4.0.0";
   buildInputs = with pkgs; [
-    gcc8Stdenv
     llvm
     curl.dev
     gmp.dev
@@ -26,10 +25,10 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake clang git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc11Stdenv clang11Stdenv git python3 ];
   cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${llvmPackages.clang}/bin/clang++"
-    "-DCMAKE_C_COMPILER=${llvmPackages.clang}/bin/clang"
+    "-DCMAKE_CXX_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/g++"
+    "-DCMAKE_C_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/gcc"
   ];
 
   src = fetchgit {
