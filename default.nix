@@ -14,7 +14,8 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  cdt = pkgs.callPackage ./pkgs/cdt { };
+  #cdt = pkgs.callPackage ./pkgs/cdt { };
+  leap = pkgs.callPackage ./pkgs/leap { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
