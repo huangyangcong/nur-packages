@@ -16,7 +16,7 @@
 
   cdt = pkgs.callPackage ./pkgs/cdt { };
   leap = pkgs.callPackage ./pkgs/leap { };
-  blanc = pkgs.callPackage ./pkgs/blanc { };
+  #blanc = pkgs.callPackage ./pkgs/blanc { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
