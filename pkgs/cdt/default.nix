@@ -31,12 +31,12 @@ clangStdenv.mkDerivation rec {
     "-DCMAKE_C_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/gcc"
   ];
 
-  src = fetchgit {
+  src = fetchFromGitHub {
     owner = "AntelopeIO";
     repo = "cdt";
     rev = "v${version}";
     #sha256 = "sha256-yZpTj3MlWYDw3Se7ZwwvNnqB4XpdPVqHWY2hK18KIIU="; #v4.0.0
-    sha256 = "sha256-0hfdyavwkjrnvxhl4p5wr3f0w13gjryrlnxhs2wivwidkbl00g4d"; #3.1.0
+    hash = "sha256-0hfdyavwkjrnvxhl4p5wr3f0w13gjryrlnxhs2wivwidkbl00g4d"; #3.1.0
     fetchSubmodules = true;
   };
 }

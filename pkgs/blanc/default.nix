@@ -27,11 +27,11 @@ clangStdenv.mkDerivation rec {
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake clang16Stdenv git python3 ];
 
-  src = fetchgit {
+  src = fetchFromGitHub {
     owner = "haderech";
     repo = "blanc";
     rev = "${version}";
-    sha256 = "sha256-08kmasxxnvjgvqarsnyf1mm1xyf5bzcrww6l0chrr52ijfpymclw"; #16.0.0
+    hash = "sha256-08kmasxxnvjgvqarsnyf1mm1xyf5bzcrww6l0chrr52ijfpymclw"; #16.0.0
     fetchSubmodules = true;
   };
 }
