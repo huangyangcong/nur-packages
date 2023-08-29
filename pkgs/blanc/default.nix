@@ -31,7 +31,7 @@ clangStdenv.mkDerivation rec {
     owner = "haderech";
     repo = "blanc";
     rev = "${version}";
-    sha256 = "08kmasxxnvjgvqarsnyf1mm1xyf5bzcrww6l0chrr52ijfpymclw"; #16.0.0
+    sha256 = "sha256-hoFIz+Q8IFNVEqVOaReLGeP8fYyEV3Ixfi1wPneXBZM="; #16.0.0
     fetchSubmodules = true;
   };
 }
