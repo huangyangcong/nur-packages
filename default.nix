@@ -14,9 +14,10 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  cdt = pkgs.callPackage ./pkgs/cdt { };
-  leap = pkgs.callPackage ./pkgs/leap { };
-  #blanc = pkgs.callPackage ./pkgs/blanc { };
+  cdt_3_1_0 = pkgs.callPackage ./pkgs/cdt/3.1.0 { };
+  cdt_4_0_0 = pkgs.callPackage ./pkgs/cdt/4.0.0 { };
+  leap_4_0_4 = pkgs.callPackage ./pkgs/leap/4.0.4 { };
+  blanc_16_0_0 = pkgs.callPackage ./pkgs/blanc/16.0.0 { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
