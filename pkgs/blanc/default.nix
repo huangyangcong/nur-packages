@@ -25,7 +25,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc16Stdenv clang16Stdenv git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig cmake clang16Stdenv git python3 ];
 
   src = fetchgit {
     owner = "haderech";
