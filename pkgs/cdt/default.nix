@@ -1,6 +1,6 @@
 { clangStdenv
 , nodejs
-, fetchgit
+, fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
