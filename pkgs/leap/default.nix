@@ -14,7 +14,7 @@ clangStdenv.mkDerivation rec {
     owner = "AntelopeIO";
     repo = "leap";
     rev = "v${version}";
-    hash = "sha256-14/oqaLF0LI94nkClIHPfxAOylsisp/6w7tWTkRFBI8=";
+    hash = "sha256-14/oqaLF0LI94nkClIHPfxAOylsisp/6w7tWTkRFBI8="; #v4.0.4
     fetchSubmodules = true;
   };
 
