@@ -10,7 +10,7 @@ clangStdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvm
+    llvmPackages_16.llvm
     curl.dev
     gmp.dev
     openssl.dev
@@ -25,7 +25,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake clang16Stdenv git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig cmake clang12Stdenv git python3 ];
 
   src = fetchFromGitHub {
     owner = "haderech";
