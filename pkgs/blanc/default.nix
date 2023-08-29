@@ -26,10 +26,6 @@ clangStdenv.mkDerivation rec {
       })
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc16Stdenv clang16Stdenv git python3 ];
-  cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${pkgs.gcc16Stdenv.cc}/bin/g++"
-    "-DCMAKE_C_COMPILER=${pkgs.gcc16Stdenv.cc}/bin/gcc"
-  ];
 
   src = fetchgit {
     owner = "haderech";
