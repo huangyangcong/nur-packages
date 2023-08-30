@@ -29,7 +29,7 @@ clangStdenv.mkDerivation rec {
   cmakeFlags = [
     "-DCMAKE_CXX_COMPILER=${pkgs.gcc13Stdenv.cc}/bin/clang"
     "-DCMAKE_C_COMPILER=${pkgs.gcc13Stdenv.cc}/bin/clang++"
-    "-DCMAKE_PREFIX_PATH=${llvmPackages_16.llvm}/lib/cmake/llvm"
+    "-DCMAKE_PREFIX_PATH=${pkgs.llvmPackages_16.llvm}/lib/cmake/llvm"
   ];
 
   src = fetchFromGitHub {
