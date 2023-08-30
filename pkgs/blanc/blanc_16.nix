@@ -10,7 +10,9 @@ clangStdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages_16.llvm
+    llvmPackages.clang-unwrapped
+    llvmPackages.llvm
+    llvmPackages.lld
     curl.dev
     gmp.dev
     openssl.dev
@@ -26,11 +28,6 @@ clangStdenv.mkDerivation rec {
       })
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
-  cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${pkgs.llvmPackages_16.clang}/bin/clang++"
-    "-DCMAKE_C_COMPILER=${pkgs.llvmPackages_16.clang}/bin/clang"
-    "-DCMAKE_PREFIX_PATH=${pkgs.llvmPackages_16.llvm}/lib/cmake/llvm"
-  ];
 
   src = fetchFromGitHub {
     owner = "haderech";
