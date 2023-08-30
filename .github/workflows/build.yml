@@ -68,7 +68,7 @@ jobs:
             -I nixpkgs=$(nix-instantiate --find-file nixpkgs) \
             -I $PWD
       - name: Build nix packages
-        run: nix shell --print-build-logs -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached ci.nix -A cacheOutputs
+        run: nix shell --print-build-logs -f '<nixpkgs>' nix-build-uncached -c nix-build-uncached -build-flags --print-build-logs ci.nix -A cacheOutputs
       - name: Run the Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v2
         #- name: Trigger NUR update
