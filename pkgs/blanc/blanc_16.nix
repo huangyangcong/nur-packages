@@ -13,6 +13,7 @@ clangStdenv.mkDerivation rec {
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
+    clang13
     curl.dev
     gmp.dev
     openssl.dev
