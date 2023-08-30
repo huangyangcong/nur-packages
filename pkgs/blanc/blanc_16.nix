@@ -13,7 +13,6 @@ clangStdenv.mkDerivation rec {
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
-    clang13
     curl.dev
     gmp.dev
     openssl.dev
@@ -28,7 +27,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig gcc11Stdenv cmake git python3 ];
 
   src = fetchFromGitHub {
     owner = "haderech";
