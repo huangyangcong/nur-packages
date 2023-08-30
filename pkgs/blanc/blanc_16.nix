@@ -26,6 +26,11 @@ clangStdenv.mkDerivation rec {
       })
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake clang13Stdenv git python3 ];
+  cmakeFlags = [
+    "-DCMAKE_CXX_COMPILER=${pkgs.gcc13Stdenv.cc}/bin/clang"
+    "-DCMAKE_C_COMPILER=${pkgs.gcc13Stdenv.cc}/bin/clang++"
+    "-DCMAKE_PREFIX_PATH=${llvmPackages_16.llvm}/lib/cmake/llvm"
+  ];
 
   src = fetchFromGitHub {
     owner = "haderech";
