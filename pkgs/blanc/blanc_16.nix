@@ -25,10 +25,10 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake clang13Stdenv git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
   cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${pkgs.gcc13Stdenv.cc}/bin/clang"
-    "-DCMAKE_C_COMPILER=${pkgs.gcc13Stdenv.cc}/bin/clang++"
+    "-DCMAKE_CXX_COMPILER=${pkgs.llvmPackages_16.clang}/bin/clang++"
+    "-DCMAKE_C_COMPILER=${pkgs.llvmPackages_16.clang}/bin/clang"
     "-DCMAKE_PREFIX_PATH=${pkgs.llvmPackages_16.llvm}/lib/cmake/llvm"
   ];
 
