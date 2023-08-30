@@ -10,9 +10,9 @@ clangStdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages.clang-unwrapped
-    llvmPackages.llvm
-    llvmPackages.lld
+    llvmPackages_16.clang-unwrapped
+    llvmPackages_16.llvm
+    llvmPackages_16.lld
     curl.dev
     gmp.dev
     openssl.dev
