@@ -4,6 +4,7 @@
 , pkgs
 , lib
 , llvmPackages
+, coreutils
 ,
 }:
 clangStdenv.mkDerivation rec {
@@ -19,7 +20,6 @@ clangStdenv.mkDerivation rec {
     libusb1.dev
     bzip2.dev
     libxml2.dev
-    coreutils
     ocaml
     opam
     (boost.override
@@ -29,8 +29,9 @@ clangStdenv.mkDerivation rec {
       })
   ];
   postPatch = ''
-    for f in ${src}/scripts/blanc_build.sh ${src}/scripts/blanc_install.sh ${src}/scripts/helpers/eosio.sh; ${src}/scripts/helpers/general.sh; do
-      substituteInPlace "$f" --replace "/usr/bin/env" "${pkgs.coreutils}/bin/env"
+    patchShebangs .
+    for f in scripts/blanc_build.sh scripts/blanc_install.sh scripts/helpers/eosio.sh; scripts/helpers/general.sh; do
+      substituteInPlace "$f" --replace "/usr/bin/env" "${coreutils}/bin/env"
     done
   '';
   nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
