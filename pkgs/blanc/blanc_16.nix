@@ -27,13 +27,13 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig gcc11Stdenv cmake git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
 
   src = fetchFromGitHub {
     owner = "haderech";
     repo = "blanc";
     rev = "${version}";
-    sha256 = "sha256-hoFIz+Q8IFNVEqVOaReLGeP8fYyEV3Ixfi1wPneXBZM="; #16.0.0
+    sha256 = "sha256-hoFIz+Q8IFNVEqVOaReLGeP8fYyEV3Ixfi1wPneXBZM=";
     fetchSubmodules = true;
   };
 }
