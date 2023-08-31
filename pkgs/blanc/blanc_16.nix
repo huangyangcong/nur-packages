@@ -28,8 +28,8 @@ clangStdenv.mkDerivation rec {
       })
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
-  builder = "${src}/scripts/blanc_build_ubuntu.sh";
-
+  builder = "${src}/scripts/blanc_build.sh";
+  setup = "${src}/scripts/blanc_install.sh";
   src = fetchFromGitHub {
     owner = "haderech";
     repo = "blanc";
