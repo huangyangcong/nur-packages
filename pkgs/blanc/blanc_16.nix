@@ -27,7 +27,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git wabt ];
+  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git wabt python3 ];
   src = fetchFromGitHub {
     owner = "haderech";
     repo = "blanc";
