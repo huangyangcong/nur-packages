@@ -19,6 +19,7 @@ clangStdenv.mkDerivation rec {
     libusb1.dev
     bzip2.dev
     libxml2.dev
+    coreutils
     ocaml
     opam
     (boost.override
@@ -32,7 +33,7 @@ clangStdenv.mkDerivation rec {
       substituteInPlace "$f" --replace "/usr/bin/env" "${pkgs.coreutils}/bin/env"
     done
   '';
-  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake coreutils git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
   builder = "${src}/scripts/blanc_build.sh";
   setup = "${src}/scripts/blanc_install.sh";
   src = fetchFromGitHub {
