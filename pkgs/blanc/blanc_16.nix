@@ -28,7 +28,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  patchPhase = ''
+  prePatch = ''
     patchShebangs .
     for f in scripts/blanc_build.sh scripts/blanc_install.sh scripts/helpers/eosio.sh; scripts/helpers/general.sh; do
       substituteInPlace "$f" --replace "/usr/bin/env" "${coreutils}/bin/env"
