@@ -4,7 +4,6 @@
 , pkgs
 , lib
 , llvmPackages
-, coreutils
 ,
 }:
 clangStdenv.mkDerivation rec {
@@ -28,13 +27,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  postPatch = ''
-
-    for f in ${src}/scripts/blanc_build.sh ${src}/scripts/blanc_install.sh; do
-      substituteInPlace "$f" --replace "/usr/bin/env" "${coreutils}/bin/env"
-    done
-  '';
-  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake coreutils git python3 ];
   builder = "${src}/scripts/blanc_build.sh";
   setup = "${src}/scripts/blanc_install.sh";
   src = fetchFromGitHub {
