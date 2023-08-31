@@ -27,6 +27,11 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
+  postPatch = ''
+    for f in ${src}/scripts/blanc_build.sh ${src}/scripts/blanc_install.sh ${src}/scripts/helpers/eosio.sh; ${src}/scripts/helpers/general.sh; do
+      substituteInPlace "$f" --replace "/usr/bin/env" "${pkgs.coreutils}/bin/env"
+    done
+  '';
   nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake coreutils git python3 ];
   builder = "${src}/scripts/blanc_build.sh";
   setup = "${src}/scripts/blanc_install.sh";
