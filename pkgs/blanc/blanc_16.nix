@@ -28,16 +28,15 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
-  builder = "${src}/scripts/blanc_build.sh";
-  setup = "${src}/scripts/blanc_install.sh";
   postPatch = ''
-    patchShebangs blanc
 
-    for f in blanc/scripts/blanc_build.sh blanc/scripts/blanc_install.sh; do
+    for f in ${src}/scripts/blanc_build.sh ${src}/scripts/blanc_install.sh; do
       substituteInPlace "$f" --replace "/usr/bin/env" "${coreutils}/bin/env"
     done
   '';
+  nativeBuildInputs = with pkgs; [ pkgconfig gcc13Stdenv cmake git python3 ];
+  builder = "${src}/scripts/blanc_build.sh";
+  setup = "${src}/scripts/blanc_install.sh";
   src = fetchFromGitHub {
     owner = "haderech";
     repo = "blanc";
