@@ -13,8 +13,9 @@ gcc10Stdenv.mkDerivation rec {
     llvmPackages_16.llvm
     llvmPackages_16.lld
     gcc10
+    wabt
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake git wabt python3 ];
+  nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
   src = fetchFromGitHub {
     owner = "haderech";
     repo = "blanc";
