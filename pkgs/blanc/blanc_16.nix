@@ -1,11 +1,11 @@
-{ gcc10Stdenv
+{ gcc9Stdenv
 , fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
 ,
 }:
-gcc10Stdenv.mkDerivation rec {
+gcc9Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
