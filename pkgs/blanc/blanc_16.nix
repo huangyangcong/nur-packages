@@ -1,18 +1,17 @@
-{ gcc9Stdenv
+{ gcc10Stdenv
 , fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
 ,
 }:
-gcc9Stdenv.mkDerivation rec {
+gcc10Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages_16.clang-unwrapped
+    llvmPackages_13.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
-    gcc10
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
   src = fetchFromGitHub {
