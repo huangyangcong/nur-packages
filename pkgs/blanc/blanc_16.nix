@@ -8,7 +8,7 @@ pkgs.llvmPackages_16.stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages_16.clang-wrapped
+    llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
