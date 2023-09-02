@@ -1,10 +1,11 @@
-{ fetchFromGitHub
+{ gcc11Stdenv
+, fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
 ,
 }:
-pkgs.llvmPackages_16.stdenv.mkDerivation rec {
+gcc11Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
@@ -12,6 +13,7 @@ pkgs.llvmPackages_16.stdenv.mkDerivation rec {
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
+    glibc
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
 
