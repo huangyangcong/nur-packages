@@ -9,7 +9,7 @@ gcc10Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    clang8
+    clang_8
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
