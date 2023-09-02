@@ -1,14 +1,15 @@
-{ clang8Stdenv
+{ stdenv
 , fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
 ,
 }:
-clang8Stdenv.mkDerivation rec {
+stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
+    llvmPackages_8.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
