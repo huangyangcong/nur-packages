@@ -13,7 +13,6 @@ gcc11Stdenv.mkDerivation rec {
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
-    glibc
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
 
