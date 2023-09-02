@@ -11,15 +11,12 @@ gcc10Stdenv.mkDerivation rec {
   version = "16.0.0";
   buildInputs = with pkgs; [
     stdenv.cc.cc # libstdc++
+    stdenv.cc.cc.lib
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     libxml2.dev
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
-  cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${pkgs.llvmPackages_16.clang}/bin/clang++"
-    "-DCMAKE_C_COMPILER=${pkgs.llvmPackages_16.clang}/bin/clang"
-  ];
 
   src = fetchFromGitHub {
     owner = "haderech";
