@@ -1,12 +1,11 @@
 { stdenv
-, gcc11Stdenv
+, gcc9Stdenv
 , fetchFromGitHub
 , pkgs
 , lib
-, llvmPackages
 ,
 }:
-gcc11Stdenv.mkDerivation rec {
+gcc9Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
@@ -27,11 +26,7 @@ gcc11Stdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
-  cmakeFlags = [
-    "-DCMAKE_CXX_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/g++"
-    "-DCMAKE_C_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/gcc"
-  ];
+  nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc11Stdenv clang11Stdenv git python3 ];
 
   src = fetchFromGitHub {
     owner = "haderech";
