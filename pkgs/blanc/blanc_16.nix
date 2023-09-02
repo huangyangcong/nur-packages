@@ -15,6 +15,17 @@ gcc10Stdenv.mkDerivation rec {
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     libxml2.dev
+    gmp.dev
+    openssl.dev
+    libusb1.dev
+    bzip2.dev
+    ocaml
+    opam
+    (boost.override
+      {
+        enableShared = false;
+        enabledStatic = true;
+      })
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
 
