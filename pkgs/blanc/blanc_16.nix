@@ -1,15 +1,14 @@
-{ gcc7Stdenv
+{ clangd16Stdenv
 , fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
 ,
 }:
-gcc7Stdenv.mkDerivation rec {
+clang16Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
