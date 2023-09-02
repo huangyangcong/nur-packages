@@ -11,7 +11,6 @@ gcc10Stdenv.mkDerivation rec {
   buildInputs = with pkgs; [
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
-    llvmPackages_16.lld
     libxml2.dev
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
