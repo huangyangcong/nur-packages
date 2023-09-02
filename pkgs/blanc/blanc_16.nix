@@ -1,4 +1,5 @@
-{ gcc10Stdenv
+{ stdenv
+, gcc10Stdenv
 , fetchFromGitHub
 , pkgs
 , lib
@@ -9,6 +10,7 @@ gcc10Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
+    stdenv.cc.cc # libstdc++
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     libxml2.dev
