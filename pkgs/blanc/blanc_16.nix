@@ -1,15 +1,13 @@
-{ stdenv
-, fetchFromGitHub
+{ fetchFromGitHub
 , pkgs
 , lib
 , llvmPackages
 ,
 }:
-stdenv.mkDerivation rec {
+pkgs.llvmPackages_16.stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages_16.stdenv
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
