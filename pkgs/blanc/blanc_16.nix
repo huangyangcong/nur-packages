@@ -9,7 +9,7 @@ gcc9Stdenv.mkDerivation rec {
   name = "blanc";
   version = "16.0.0";
   buildInputs = with pkgs; [
-    llvmPackages_13.clang-unwrapped
+    llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
     libxml2.dev
