@@ -12,6 +12,7 @@ gcc9Stdenv.mkDerivation rec {
     llvmPackages_16.clang-unwrapped
     llvmPackages_16.llvm
     llvmPackages_16.lld
+    icu4c
   ];
   nativeBuildInputs = with pkgs; [ pkgconfig cmake git python3 ];
   src = fetchFromGitHub {
