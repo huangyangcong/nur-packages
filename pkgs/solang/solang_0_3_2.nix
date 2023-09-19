@@ -3,7 +3,7 @@ stdenv.mkDerivation {
   name = "solang";
   src = fetchurl {
     url = "https://github.com/hyperledger/solang/releases/download/v0.3.2/solang-linux-x86-64";
-    sha256 = "sha256-+qezaj8+s/oYR0VaHntW3RucMth5IfOQ6tcwhBw4qKE=";
+    sha256 = "sha256-aUgc0cXyiyBvzye3wKLFCsJDevVPzwyD3588zn2Qtd4=";
   };
 
   nativeBuildInputs = [
