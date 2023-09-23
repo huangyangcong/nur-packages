@@ -19,6 +19,7 @@
   cdt_4 = pkgs.callPackage ./pkgs/cdt/cdt_4.nix { };
   leap_4 = pkgs.callPackage ./pkgs/leap/leap_4.nix { };
   solang_0_3_2 = pkgs.callPackage ./pkgs/solang/solang_0_3_2.nix { };
+  foundry = pkgs.callPackage ./pkgs/solang/foundry.nix { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
