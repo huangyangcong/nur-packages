@@ -5,7 +5,7 @@ let
   bins = [ "forge" "cast" "anvil" "chisel" ];
   binsWithCompletions = [ "forge" "cast" "anvil" ];
 in
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "foundry";
   version = "nightly-4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
 
