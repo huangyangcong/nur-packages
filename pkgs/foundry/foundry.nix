@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
     sha256 = "sha256-3slqb0MR0vHsC9ILHLWY+dc7a7MFfACePO3+OwPVLFM=";
   };
   cargoLock = {
-    lockFile = "${src}/Cargo.lock";
+    lockFile = "./Cargo.lock";
     allowBuiltinFetchGit = true;
   };
   installPhase = ''
