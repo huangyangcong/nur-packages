@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs, fetchFromGitHub }:
 let
   inherit (pkgs) stdenv lib;
 
