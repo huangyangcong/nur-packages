@@ -9,10 +9,12 @@ rustPlatform.buildRustPackage rec {
     rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
     sha256 = "sha256-3slqb0MR0vHsC9ILHLWY+dc7a7MFfACePO3+OwPVLFM=";
   };
-
-  cargoLock.outputHashes = {
-    "c-kzg-0.1.0" = lib.fakeSha256;
-    "ethers-2.0.10" = lib.fakeSha256;
+  cargoLock = {
+    lockFile = "${src}/Cargo.lock";
+    outputHashes = {
+      "c-kzg-0.1.0" = lib.fakeSha256;
+      "ethers-2.0.10" = lib.fakeSha256;
+    };
   };
   installPhase = ''
     cargo install --path ./crates/forge --profile local --force --locked
