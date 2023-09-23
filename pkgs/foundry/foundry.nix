@@ -12,8 +12,8 @@ rustPlatform.buildRustPackage rec {
   cargoLock = {
     lockFile = "${src}/Cargo.lock";
     outputHashes = {
-      "c-kzg-0.1.0" = lib.fakeSha256;
-      "ethers-2.0.10" = lib.fakeSha256;
+      "c-kzg-0.1.0" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
     };
   };
   installPhase = ''
