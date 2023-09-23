@@ -1,14 +1,21 @@
 { lib, pkgs, rustPlatform, fetchFromGitHub }:
 rustPlatform.buildRustPackage rec {
   pname = "foundry";
-  version = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
+  version = "";
 
   src = fetchFromGitHub {
     owner = "foundry-rs";
     repo = "foundry";
-    rev = "${version}";
+    rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
     sha256 = "sha256-yZpTj3MlWYDw3Se7ZwwvNnqB4XpdPVqHWY2hK18KIIU=";
   };
+
+  installPhase = ''
+    cargo install --path ./crates/forge --profile local --force --locked
+    cargo install --path ./crates/cast --profile local --force --locked
+    cargo install --path ./crates/anvil --profile local --force --locked
+    cargo install --path ./crates/chisel --profile local --force --locked
+  '';
 
   cargoSha256 = "sha256-IfuEqo5z+K+XbDSFgDIycpOLiBeB9iCz/sj8i+lB8dw=";
   meta = with lib; {
