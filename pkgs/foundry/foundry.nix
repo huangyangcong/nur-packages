@@ -1,7 +1,7 @@
 { lib, pkgs, rustPlatform, fetchFromGitHub }:
 rustPlatform.buildRustPackage rec {
   pname = "foundry";
-  version = "";
+  version = "nightly-2022.09.23";
 
   src = fetchFromGitHub {
     owner = "foundry-rs";
