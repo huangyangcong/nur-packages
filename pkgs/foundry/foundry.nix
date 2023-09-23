@@ -7,6 +7,7 @@ rustPlatform.buildRustPackage rec {
     owner = "foundry-rs";
     repo = "foundry";
     rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
+    sha256 = "sha256-3slqb0MR0vHsC9ILHLWY+dc7a7MFfACePO3+OwPVLFM=";
   };
   installPhase = ''
     cargo install --path ./crates/forge --profile local --force --locked
