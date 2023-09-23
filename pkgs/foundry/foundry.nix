@@ -8,9 +8,6 @@ rustPlatform.buildRustPackage rec {
     repo = "foundry";
     rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
   };
-  cargoLock = {
-    allowBuiltinFetchGit = true;
-  };
   installPhase = ''
     cargo install --path ./crates/forge --profile local --force --locked
     cargo install --path ./crates/cast --profile local --force --locked
