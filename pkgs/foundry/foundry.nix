@@ -7,13 +7,24 @@ rustPlatform.buildRustPackage rec {
     owner = "foundry-rs";
     repo = "foundry";
     rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
-    sha256 = "sha256-3slqb0MR0vHsC9ILHLWY+dc7a7MFfACePO3+OwPVLFM=";
   };
   cargoLock = {
     lockFile = "${src}/Cargo.lock";
     outputHashes = {
       "c-kzg-0.1.0" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
       "ethers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-core-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-etherscan-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-addressbook-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-contract-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-contract-derive-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-contract-abigen-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-middleware-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-providers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-signers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-solc-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "revm-3.3.0" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "revm-interpreter-1.1.2" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
     };
   };
   installPhase = ''
