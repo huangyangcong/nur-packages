@@ -9,9 +9,6 @@ rustPlatform.buildRustPackage rec {
     rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
     sha256 = "sha256-3slqb0MR0vHsC9ILHLWY+dc7a7MFfACePO3+OwPVLFM=";
   };
-  cargoLock = {
-    lockFile = "${src}/Cargo.lock";
-  };
   installPhase = ''
     cargo install --path ./crates/forge --profile local --force --locked
     cargo install --path ./crates/cast --profile local --force --locked
