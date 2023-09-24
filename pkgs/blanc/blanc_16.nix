@@ -28,7 +28,7 @@ gcc11Stdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc9Stdenv clang9Stdenv git python3 ];
+  nativeBuildInputs = with pkgs; [ pkg-config cmake gcc9Stdenv clang9Stdenv git python3 ];
 
   src = fetchFromGitHub {
     owner = "haderech";

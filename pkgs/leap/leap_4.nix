@@ -22,7 +22,7 @@ clangStdenv.mkDerivation rec {
     find . -type f -name '*.py' -print0 | xargs -0 -I{} sed -i -E 's#/usr/bin/env python3?#${pkgs.python3}/bin/python3#' {}
   '';
 
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc11Stdenv clang11Stdenv git python3 ];
+  nativeBuildInputs = with pkgs; [ pkg-config cmake gcc11Stdenv clang11Stdenv git python3 ];
   cmakeFlags = [
     "-DCMAKE_CXX_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/g++"
     "-DCMAKE_C_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/gcc"

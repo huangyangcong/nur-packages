@@ -25,7 +25,7 @@ clangStdenv.mkDerivation rec {
         enabledStatic = true;
       })
   ];
-  nativeBuildInputs = with pkgs; [ pkgconfig cmake gcc11Stdenv clang11Stdenv git python3 ];
+  nativeBuildInputs = with pkgs; [ pkg-config cmake gcc11Stdenv clang11Stdenv git python3 ];
   cmakeFlags = [
     "-DCMAKE_CXX_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/g++"
     "-DCMAKE_C_COMPILER=${pkgs.gcc11Stdenv.cc}/bin/gcc"
