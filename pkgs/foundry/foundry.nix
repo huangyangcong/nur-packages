@@ -1,16 +1,18 @@
 { lib, pkgs, fetchFromGitHub }:
 let
-  rustChannel = (pkgs.rustChannelOf { rustToolchain = ../rust-toolchain; });
-  rustPlatform = pkgs.makeRustPlatform {
-    rustc = rustChannel.rust;
-    cargo = rustChannel.rust;
+  date = "2023-08-24";
+  channel = "nightly";
+  mozilla-overlay = fetchFromGitHub {
+    owner = "mozilla";
+    repo = "nixpkgs-mozilla";
+    rev = "db89c8707edcffefcd8e738459d511543a339ff5";
+    sha256 = "sha256-aRIf2FB2GTdfF7gl13WyETmiV/J7EhBGkSWXfZvlxcA=";
   };
+  mozilla = pkgs.callPackage "${mozilla-overlay.out}/package-set.nix" { };
+  rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
+  rustPlatform = pkgs.makeRustPlatform { cargo = rustSpecific; rustc = rustSpecific; };
 in
 rustPlatform.buildRustPackage rec {
-  # Enable nightly features somehow
-  # https://nixos.org/manual/nixpkgs/stable/#using-community-maintained-rust-toolchains
-  RUSTC_BOOTSTRAP = 1;
-
   pname = "foundry";
   version = "nightly-2022.09.23";
 
