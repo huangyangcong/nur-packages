@@ -1,16 +1,26 @@
 { lib, pkgs, fetchFromGitHub, makeRustPlatform }:
 let
-  date = "2023-08-24";
-  channel = "nightly";
-  mozilla-overlay = fetchFromGitHub {
-    owner = "mozilla";
-    repo = "nixpkgs-mozilla";
-    rev = "d8a0a26242ca12145c9a1a4e08e21efb15fc7776";
-    sha256 = "sha256-aRIf2FB2GTdfF7gl13WyETmiV/J7EhBGkSWXfZvlxcA=";
+  rustPlatform = mkRustPlatform {
+    # https://github.com/immunant/c2rust/blob/master/rust-toolchain
+    date = "2021-11-22";
+    channel = "nightly";
   };
-  mozilla = import "${mozilla-overlay}/package-set.nix" { inherit pkgs; };
-  rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
-  rustPlatform = makeRustPlatform { cargo = rustSpecific; rustc = rustSpecific; };
+
+  mkRustPlatform = { date, channel }:
+    let
+      mozillaOverlay = fetchFromGitHub {
+        owner = "mozilla";
+        repo = "nixpkgs-mozilla";
+        rev = "15b7a05f20aab51c4ffbefddb1b448e862dccb7d";
+        sha256 = "sha256-YeN4bpPvHkVOpQzb8APTAfE7/R+MFMwJUMkqmfvytSk=";
+      };
+      mozilla = callPackage "${mozillaOverlay.out}/package-set.nix" { };
+      rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
+    in
+    makeRustPlatform {
+      cargo = rustSpecific;
+      rustc = rustSpecific;
+    };
 in
 rustPlatform.buildRustPackage rec {
   pname = "foundry";
