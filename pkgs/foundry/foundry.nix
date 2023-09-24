@@ -1,5 +1,9 @@
 { lib, pkgs, rustPlatform, fetchFromGitHub }:
 rustPlatform.buildRustPackage rec {
+  # Enable nightly features somehow
+  # https://nixos.org/manual/nixpkgs/stable/#using-community-maintained-rust-toolchains
+  RUSTC_BOOTSTRAP = 1;
+
   pname = "foundry";
   version = "nightly-2022.09.23";
 
@@ -38,7 +42,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   #cargoSha256 = lib.fakeHash;
-  cargoSha256 = "sha256-KlTQF1iL2PYAk+nmQIm72guy2PxGkN/YzhgCNv1FZGM=";
+  cargoHash = "sha256-l1vL2ZdtDRxSGvP0X/l3nMw8+6WF67KPutJEzUROjg8=";
 
   meta = with lib; {
     description = "Foundry is a blazing fast, portable and modular toolkit for Ethereum application development";
