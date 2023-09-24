@@ -1,15 +1,5 @@
-{ lib, pkgs, fetchFromGitHub, makeRustPlatform }:
+{ lib, pkgs, fetchFromGitHub, rustPlatform }:
 let
-  date = "2023-08-24";
-  channel = "nightly";
-  mozilla-overlay = fetchFromGitHub {
-    owner = "mozilla";
-    repo = "nixpkgs-mozilla";
-    rev = "d8a0a26242ca12145c9a1a4e08e21efb15fc7776";
-  };
-  mozilla = pkgs.callPackage "${mozilla-overlay}/package-set.nix" { };
-  rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
-  rustPlatform = makeRustPlatform { cargo = rustSpecific; rustc = rustSpecific; };
 in
 rustPlatform.buildRustPackage rec {
   pname = "foundry";
