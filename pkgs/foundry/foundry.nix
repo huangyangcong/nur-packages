@@ -8,7 +8,7 @@ let
     rev = "d8a0a26242ca12145c9a1a4e08e21efb15fc7776";
     sha256 = "sha256-aRIf2FB2GTdfF7gl13WyETmiV/J7EhBGkSWXfZvlxcA=";
   };
-  mozilla = pkgs.callPackage "${mozilla-overlay}/package-set.nix" { };
+  mozilla = import "${mozilla-overlay}/package-set.nix" { inherit pkgs; };
   rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
   rustPlatform = makeRustPlatform { cargo = rustSpecific; rustc = rustSpecific; };
 in
