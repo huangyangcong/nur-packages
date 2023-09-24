@@ -12,23 +12,23 @@ rustPlatform.buildRustPackage rec {
   cargoLock = {
     lockFile = ./Cargo.lock;
     # Allow dependencies to be fetched from git and avoid having to set the outputHashes manually
-    #allowBuiltinFetchGit = true;
-    outputHashes = {
-      "c-kzg-0.1.0" = "sha256-a0ZkshWGzChNibsKBBq8HhOtjRYgAuNlSTinZoAFDkY=";
-      "ethers-2.0.10" = "sha256-oC38WzFOXa+gA3bMCmCnpL7WzN+DG5QFOZEJtxPkNZc=";
-      "ethers-core-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-etherscan-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-addressbook-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-contract-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-contract-derive-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-contract-abigen-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-middleware-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-providers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-signers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "ethers-solc-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "revm-3.3.0" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-      "revm-interpreter-1.1.2" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
-    };
+    allowBuiltinFetchGit = true;
+    # outputHashes = {
+    #   "c-kzg-0.1.0" = "sha256-a0ZkshWGzChNibsKBBq8HhOtjRYgAuNlSTinZoAFDkY=";
+    #   "ethers-2.0.10" = "sha256-oC38WzFOXa+gA3bMCmCnpL7WzN+DG5QFOZEJtxPkNZc=";
+    #   "ethers-core-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-etherscan-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-addressbook-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-contract-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-contract-derive-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-contract-abigen-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-middleware-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-providers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-signers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "ethers-solc-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    #   "revm-3.3.0" = "sha256-Ljk72rk60YLVKLzANrKiG4c/IgaDEGqRO9nYec1bgaI=";
+    #   "revm-interpreter-1.1.2" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+    # };
   };
   installPhase = ''
     cargo install --path ./crates/forge --profile local --force --locked
