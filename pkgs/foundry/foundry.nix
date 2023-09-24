@@ -38,7 +38,7 @@ rustPlatform.buildRustPackage rec {
   '';
 
   #cargoSha256 = lib.fakeHash;
-  cargoSha256 = "sha256-IfuEqo5z+K+XbDSFgDIycpOLiBeB9iCz/sj8i+lB8dw=";
+  cargoSha256 = "sha256-KlTQF1iL2PYAk+nmQIm72guy2PxGkN/YzhgCNv1FZGM=";
 
   meta = with lib; {
     description = "Foundry is a blazing fast, portable and modular toolkit for Ethereum application development";
