@@ -5,10 +5,10 @@ let
   mozilla-overlay = fetchFromGitHub {
     owner = "mozilla";
     repo = "nixpkgs-mozilla";
-    rev = "db89c8707edcffefcd8e738459d511543a339ff5";
+    rev = "d8a0a26242ca12145c9a1a4e08e21efb15fc7776";
     sha256 = "sha256-aRIf2FB2GTdfF7gl13WyETmiV/J7EhBGkSWXfZvlxcA=";
   };
-  mozilla = pkgs.callPackage "${mozilla-overlay.out}/package-set.nix" { };
+  mozilla = pkgs.callPackage "${mozilla-overlay}/package-set.nix" { };
   rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
   rustPlatform = makeRustPlatform { cargo = rustSpecific; rustc = rustSpecific; };
 in
