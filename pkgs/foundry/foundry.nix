@@ -1,13 +1,9 @@
 { lib, pkgs, fetchFromGitHub }:
 let
-  rustVersion = pkgs.rust-bin.stable.latest.default.override {
-    #extensions = [ "rust-src" ];
-    #targets = [ "x86_64-unknown-linux-musl" ];
-    targets = [ "wasm32-wasi" "wasm32-unknown-unknown" "wasm32-unknown-emscripten" ];
-  };
+  rustChannel = (pkgs.rustChannelOf { rustToolchain = ../rust-toolchain; });
   rustPlatform = pkgs.makeRustPlatform {
-    cargo = rustVersion;
-    rustc = rustVersion;
+    rustc = rustChannel.rust;
+    cargo = rustChannel.rust;
   };
 in
 rustPlatform.buildRustPackage rec {
