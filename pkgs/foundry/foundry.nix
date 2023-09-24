@@ -14,7 +14,7 @@ let
         rev = "15b7a05f20aab51c4ffbefddb1b448e862dccb7d";
         sha256 = "sha256-YeN4bpPvHkVOpQzb8APTAfE7/R+MFMwJUMkqmfvytSk=";
       };
-      mozilla = callPackage "${mozillaOverlay.out}/package-set.nix" { };
+      mozilla = pkgs.callPackage "${mozillaOverlay.out}/package-set.nix" { };
       rustSpecific = (mozilla.rustChannelOf { inherit date channel; }).rust;
     in
     makeRustPlatform {
