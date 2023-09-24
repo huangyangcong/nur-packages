@@ -1,4 +1,15 @@
-{ lib, pkgs, rustPlatform, fetchFromGitHub }:
+{ lib, pkgs, fetchFromGitHub }:
+let
+  rustVersion = pkgs.rust-bin.stable.latest.default.override {
+    #extensions = [ "rust-src" ];
+    #targets = [ "x86_64-unknown-linux-musl" ];
+    targets = [ "wasm32-wasi" "wasm32-unknown-unknown" "wasm32-unknown-emscripten" ];
+  };
+  rustPlatform = pkgs.makeRustPlatform {
+    cargo = rustVersion;
+    rustc = rustVersion;
+  };
+in
 rustPlatform.buildRustPackage rec {
   # Enable nightly features somehow
   # https://nixos.org/manual/nixpkgs/stable/#using-community-maintained-rust-toolchains
@@ -13,6 +24,7 @@ rustPlatform.buildRustPackage rec {
     rev = "4665d7ce4b3b572163cc04b33b4fd190e28f2c5f";
     sha256 = "sha256-3slqb0MR0vHsC9ILHLWY+dc7a7MFfACePO3+OwPVLFM=";
   };
+  nativeBuildInputs = [ rustc cargo gcc ]; # for NIFs
   cargoLock = {
     lockFile = ./Cargo.lock;
     # Allow dependencies to be fetched from git and avoid having to set the outputHashes manually
