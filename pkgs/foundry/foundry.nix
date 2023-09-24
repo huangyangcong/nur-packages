@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     #allowBuiltinFetchGit = true;
     outputHashes = {
       "c-kzg-0.1.0" = "sha256-a0ZkshWGzChNibsKBBq8HhOtjRYgAuNlSTinZoAFDkY=";
-      "ethers-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
+      "ethers-2.0.10" = "sha256-oC38WzFOXa+gA3bMCmCnpL7WzN+DG5QFOZEJtxPkNZc=";
       "ethers-core-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
       "ethers-etherscan-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
       "ethers-addressbook-2.0.10" = "sha256-0bgPD4aYDiMnVmqaGALfqptDhQ9r3u7txeXNSiqeozI=";
