@@ -1,5 +1,9 @@
-{ lib, pkgs, fetchFromGitHub, rustPlatform }:
+{ lib, pkgs, fetchFromGitHub }:
 let
+  rustPlatform = pkgs.makeRustPlatform {
+    cargo = pkgs.cargo;
+    rustc = pkgs.rustc;
+  };
 in
 rustPlatform.buildRustPackage rec {
   pname = "foundry";
