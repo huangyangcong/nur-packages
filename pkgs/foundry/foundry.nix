@@ -1,4 +1,4 @@
-{ lib, pkgs, fetchFromGitHub }:
+{ lib, pkgs, fetchFromGitHub, makeRustPlatform }:
 (makeRustPlatform {
   rustc = rust-bin.nightly."2023-09-06".default;
   cargo = rust-bin.nightly."2021-09-06".default;
