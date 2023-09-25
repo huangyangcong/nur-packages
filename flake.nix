@@ -1,7 +1,9 @@
 {
   description = "My personal NUR repository";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs }: ({
+    overlays.default = import ./overlay.nix;
+  }) // (
     let
       systems = [
         "x86_64-linux"
@@ -18,5 +20,6 @@
         pkgs = import nixpkgs { inherit system; };
       });
       packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
-    };
+    }
+  );
 }
