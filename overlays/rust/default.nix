@@ -1,3 +1,4 @@
+{ fetchFromGitHub }:
 let
   rust-overlay = import (fetchFromGitHub {
     owner = "oxalica";
