@@ -10,10 +10,10 @@ let
     rev = "9824f142cbd7bc3e2a92eefbb79addfff8704cd3";
     sha256 = "sha256-RumRrkE6OTJDndHV4qZNZv8kUGnzwRHZQSyzx29r6/g=";
   });
-  pkgs = pkgs.extend rust-overlay;
+  pkgs_extend = pkgs.extend rust-overlay;
   rustPlatform = makeRustPlatform {
-    rustc = pkgs.rust-bin.nightly."2023-09-06".default;
-    cargo = pkgs.rust-bin.nightly."2021-09-06".default;
+    rustc = pkgs_extend.rust-bin.nightly."2023-09-06".default;
+    cargo = pkgs_extend.rust-bin.nightly."2021-09-06".default;
   };
 in
 rustPlatform.buildRustPackage rec {
