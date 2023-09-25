@@ -4,7 +4,13 @@
 , makeRustPlatform
 }:
 let
-  pkgs_ext = pkgs.extend (import ../../overlays/default.nix).rust-overlay;
+  rust-overlay = import (fetchFromGitHub {
+    owner = "oxalica";
+    repo = "rust-overlay";
+    rev = "9ea38d547100edcf0da19aaebbdffa2810585495";
+    sha256 = "kwKCfmliHIxKuIjnM95TRcQxM/4AAEIZ+4A9nDJ6cJs=";
+  });
+  pkgs_ext = rust-overlay;
   rustPlatform = makeRustPlatform {
     rustc = pkgs_ext.rust-bin.nightly."2023-09-06".default;
     cargo = pkgs_ext.rust-bin.nightly."2021-09-06".default;
