@@ -1,11 +1,8 @@
 { lib, pkgs, fetchFromGitHub }:
-let
-  rustPlatform = pkgs.makeRustPlatform {
-    cargo = pkgs.cargo;
-    rustc = pkgs.rustc;
-  };
-in
-rustPlatform.buildRustPackage rec {
+(makeRustPlatform {
+  rustc = rust-bin.nightly."2023-09-06".default;
+  cargo = rust-bin.nightly."2021-09-06".default;
+}).buildRustPackage rec {
   pname = "foundry";
   version = "nightly-2022.09.23";
 
