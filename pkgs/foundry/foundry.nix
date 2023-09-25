@@ -1,4 +1,5 @@
 { pkgs
+, nixpkgs
 , lib
 , fetchFromGitHub
 , makeRustPlatform
