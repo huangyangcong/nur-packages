@@ -1,4 +1,8 @@
-{ lib, pkgs, fetchFromGitHub, makeRustPlatform }:
+{ pkgs ? import <nixpkgs> { overlays = [ (import ../../overlays/rust) ]; }
+, lib
+, fetchFromGitHub
+, makeRustPlatform
+}:
 (makeRustPlatform {
   rustc = pkgs.rust-bin.nightly."2023-09-06".default;
   cargo = pkgs.rust-bin.nightly."2021-09-06".default;
