@@ -4,16 +4,10 @@
 , makeRustPlatform
 }:
 let
-  rust-overlay = import (pkgs.fetchFromGitHub {
-    owner = "oxalica";
-    repo = "rust-overlay";
-    rev = "9824f142cbd7bc3e2a92eefbb79addfff8704cd3";
-    sha256 = "sha256-RumRrkE6OTJDndHV4qZNZv8kUGnzwRHZQSyzx29r6/g=";
-  });
-  pkgs_extend = pkgs.extend rust-overlay;
+  pkgs_ext = pkgs.extend (import ../../overlays/default.nix).rust-overlay;
   rustPlatform = makeRustPlatform {
-    rustc = pkgs_extend.rust-bin.nightly."2023-09-06".default;
-    cargo = pkgs_extend.rust-bin.nightly."2021-09-06".default;
+    rustc = pkgs_ext.rust-bin.nightly."2023-09-06".default;
+    cargo = pkgs_ext.rust-bin.nightly."2021-09-06".default;
   };
 in
 rustPlatform.buildRustPackage rec {
