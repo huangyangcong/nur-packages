@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { overlays = [ (import ../../overlays/rust) ]; }
+{ pkgs ? import <nixpkgs> { overlays = [ (import ../../overlays/default.nix).rust-overlay ]; }
 , lib
 , fetchFromGitHub
 , makeRustPlatform
