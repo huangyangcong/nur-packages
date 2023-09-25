@@ -7,5 +7,4 @@
   #  };
   #}
   # my-overlay = import ./my-overlay;
-  rust-overlay = import ./rust;
 }
