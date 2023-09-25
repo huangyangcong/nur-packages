@@ -1,13 +1,10 @@
 { pkgs
-, nixpkgs
 , lib
 , fetchFromGitHub
 , makeRustPlatform
 }:
 let
-  pkgs = import nixpkgs {
-    overlays = [ (import ../../overlays/default.nix).rust-overlay ];
-  };
+  pkgs = pkgs.extend (import ../../overlays/default.nix).rust-overlay;
   rustPlatform = makeRustPlatform {
     rustc = pkgs.rust-bin.nightly."2023-09-06".default;
     cargo = pkgs.rust-bin.nightly."2021-09-06".default;
